@@ -49,5 +49,27 @@ The 433/315 transmitter data pin was connected to D2 pin (GPIO4), but any other 
 ## Obtaining RF codes
 The RF codes can be sniffed using the [RC-switch examples](https://github.com/sui77/rc-switch/tree/master/examples/ReceiveDemo_Advanced) using an Arduino or ESP8266 as well. Keep in mind that there might be a difference measured in pulselength depending on the device, since rc-switch (currently) does not adjust for clock speed. It is therefore advisable to also use an ESP8266 when sniffing the codes.
 
+## Home Assistant example
+Example configuration in Home Assistant
+```yaml
+# Broker config
+mqtt:
+  broker: 127.0.0.1
+  port: 1883
+  client_id: home-assistant-1
+  keepalive: 60
+
+# RF switch
+switch:
+  - platform: mqtt
+    name: "Bedroom light"
+    command_topic: "switch/rf/1"
+    payload_on: "4|101|101000110001100001101100"
+    payload_off: "4|101|101010100100101100101100"
+    optimistic: false
+    qos: 0
+    retain: true
+```
+
 ## License
 The code falls under the MIT license.
