@@ -70,8 +70,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
         code = tok;
         
         Serial.printf("prot: %u, pulselen: %u, code: %s\n", protocol, pulselen, code);
-        mySwitch.setPulseLength(pulselen);
-        mySwitch.setProtocol(protocol);
+        mySwitch.setProtocol(protocol,pulselen);
         mySwitch.send(code);
       }
     }
