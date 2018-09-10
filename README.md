@@ -33,6 +33,8 @@ The following MQTT payload should be sent:
 
 These protocol, pulselength and binary variables can be sniffed as described in [Obtaining RF codes](#obtaining-rf-codes).
 
+Remember to modify lines 12 & 13 with your MQTT broker's username and password, or uncomment line 135 and comment line 136 if you have no credentials needed for your MQTT broker.
+
 For persistency, the _retain-flag_ can be set such that the codes are re-sent when the ESP8266 is rebooted.
 
 ## Code setup
